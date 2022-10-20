@@ -1,11 +1,11 @@
 module.exports = {
-
   env: {
     browser: true,
     commonjs: true,
     es2021: true,
     es6: true
   },
+  parser: '@typescript-eslint/parser',
   extends: [
     'standard',
     'standard-react',
@@ -14,7 +14,7 @@ module.exports = {
     'plugin:react/recommended'
   ],
   // globals: { Atomics: 'readonly', SharedArrayBuffer: 'readonly' },
-  parser: '@typescript-eslint/parser',
+
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
