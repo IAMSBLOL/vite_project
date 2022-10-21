@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr'
 import legacy from '@vitejs/plugin-legacy'
 // import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 // import eslint from '@rollup/plugin-eslint';
-import eslint from 'vite-plugin-eslint'
+// import eslint from 'vite-plugin-eslint'
 const path = require('path')
 
 const projectRootDir = path.resolve(__dirname);
