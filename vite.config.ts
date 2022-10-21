@@ -43,17 +43,18 @@ export default defineConfig((configEnv) => {
         exportAsDefault: false,
       }),
 
-      isDev && eslint({
-        /* your options */
+      // 编译器提示就够了其实，没必要写进进程
+      // isDev && eslint({
+      //   /* your options */
 
-      }),
+      // }),
     ].filter(Boolean),
 
 
 
     build: {
       rollupOptions: {
-
+        
       }
     },
 
