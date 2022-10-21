@@ -1,10 +1,10 @@
-import './DatasetViewerExample.sass'
-
+import './DatasetViewerExample.scss'
+console.log(import.meta.env)
 const DatasetViewerExample = () => {
   return (
-    <div>
-
-            DatasetViewerExample
+    <div className='DatasetViewerExample'>
+      Dataset
+123
     </div>
   )
 }

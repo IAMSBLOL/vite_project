@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { ReactComponent as ReactLogo } from '@assets/react.svg'
+import DatasetViewerExample from '@view/DatasetViewerExample'
 import './App.css'
 
 function App () {
@@ -11,12 +12,13 @@ function App () {
 
   return (
     <div className="App">
+      <DatasetViewerExample />
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
         <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <ReactLogo className="logo react" />
         </a>
       </div>
       <h1>Vite + React</h1>
