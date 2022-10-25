@@ -1,10 +1,9 @@
-import './DatasetViewerExample.scss'
-console.log(import.meta.env)
+import './DatasetViewerExample.less'
+
 const DatasetViewerExample = () => {
   return (
-    <div className='DatasetViewerExample'>
-      Dataset
-123
+    <div className='DatasetViewerExample justify-items-start'>
+      <div>async </div>
     </div>
   )
 }

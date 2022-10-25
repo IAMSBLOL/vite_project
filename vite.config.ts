@@ -3,6 +3,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import legacy from '@vitejs/plugin-legacy'
+
+
 // import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 // import eslint from '@rollup/plugin-eslint';
 // import eslint from 'vite-plugin-eslint'
@@ -12,8 +14,8 @@ const projectRootDir = path.resolve(__dirname);
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => {
 
-  const CSS_MODULE_LOCAL_IDENT_NAME = '[local]___[hash:base64:5]';
 
+  const generateScopedName = "[name]__[hash:base64:5]";
   process.env.mode = configEnv.mode
 
   const isDev = configEnv.mode === 'development'
@@ -23,6 +25,7 @@ export default defineConfig((configEnv) => {
 
     plugins: [
 
+      
       react({
         fastRefresh: true,
         babel: {
@@ -37,7 +40,7 @@ export default defineConfig((configEnv) => {
       // dynamicImportVars({
       //   // options
       // }),
-
+ 
       svgr({
         include: '**/*.svg',
         exportAsDefault: false,
@@ -51,6 +54,11 @@ export default defineConfig((configEnv) => {
     ].filter(Boolean),
 
 
+    css: {
+      modules: {
+        generateScopedName: generateScopedName
+      },
+    },
 
     build: {
       rollupOptions: {
@@ -58,11 +66,6 @@ export default defineConfig((configEnv) => {
       }
     },
 
-    css: {
-      modules: {
-        generateScopedName: CSS_MODULE_LOCAL_IDENT_NAME
-      },
-    },
     resolve: {
       alias: {
         '@src': path.resolve(projectRootDir, 'src'),
