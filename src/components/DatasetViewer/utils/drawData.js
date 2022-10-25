@@ -1,7 +1,7 @@
 import { fabric } from 'fabric'
 import { CustomPolygon } from '../customFabricClass/cusPolygon'
 import { CustomRect } from '../customFabricClass/cusRect'
-const randomColor = require('randomcolor'); // import the script
+import randomColor from 'randomcolor'; // import the script
 
 // 初始化自定义多边形，后续反序列化的关键
 fabric.CustomPolygon = CustomPolygon;
@@ -31,7 +31,7 @@ const defaultRect = {
   noScaleCache: false,
 }
 
-export default function (ctx, data) {
+export const drawData = (ctx, data) => {
   const {
     type, label, points,
     rectData,
