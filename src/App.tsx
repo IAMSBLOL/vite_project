@@ -8,7 +8,7 @@ function App () {
     <div className="App container mx-auto">
 
       <div className='title_wrap'>
-        <h1>Example by Vite&React</h1>
+        <h1>Example</h1>
         <div className='logo_wrap'>
           <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
             <img src="/vite.svg" className="logo" alt="Vite logo" />

@@ -33,7 +33,9 @@ const defaultRect = {
 
 export const drawData = (ctx, data) => {
   const {
-    type, label, points,
+    type,
+    label,
+    points,
     rectData,
     stroke,
     fill
@@ -65,7 +67,7 @@ export const drawData = (ctx, data) => {
 
       fill,
       stroke,
-      ...{ label },
+      label,
       ...defaultRect,
 
       cornerStyle: 'circle'
@@ -109,7 +111,7 @@ export const drawData = (ctx, data) => {
       transparentCorners: false,
       fill: 'transparent',
 
-      ...{ label }
+      label
     })
     ctx.add(line)
   }

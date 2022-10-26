@@ -1,17 +1,14 @@
-interface CTX extends fabric.Canvas {
-    isDragging:boolean;
-    lastPosX:any;
-    lastPosY:any
-}
+
 // 禁止一切操作
-export const disableAnyFuck = (ctx: CTX) => {
+export const disableAnyFuck = (ctx: DatasetViewer_V1.FabricCtx) => {
   // ctx.skipTargetFind = true
   ctx.selection = false
 }
 
 // 开启拖拽+缩放
-export const setDropAndScale = (ctx: CTX) => {
+export const setDropAndScale = (ctx: DatasetViewer_V1.FabricCtx) => {
   ctx.on('mouse:wheel', (opt:any) => {
+    console.log(11)
     const delta = opt.e.deltaY;
     let zoom = ctx.getZoom();
     // console.warn(0.999 ** delta, 'zoomzoom')
