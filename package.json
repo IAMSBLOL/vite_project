@@ -1,18 +1,30 @@
 {
   "name": "datasetviewer",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "lib": "tsc && vite build --mode lib",
+    "preview": "vite preview",
+    "publish:npm": "yarn publish --registry https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./lib/umd/index.umd.js",
+  "module": "./lib/es/index.es.js",
+  "types": "./lib/src/components/DatasetViewer/dataset-viewer.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.es.js",
+      "require": "./lib/index.umd.js"
+    }
   },
   "dependencies": {
     "fabric": "^5.2.4",
     "lodash": "^4.17.21",
-    "randomcolor": "^0.6.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "randomcolor": "^0.6.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
@@ -46,11 +58,13 @@
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.2",
     "postcss-px-to-viewport": "^1.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.55.0",
     "tailwindcss": "^3.2.1",
     "terser": "^5.15.1",
-    "typescript": "^4.6.4",
     "vite": "^3.1.0",
+    "vite-plugin-dts": "^1.6.6",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-react-svg": "^0.2.0",
     "vite-plugin-svgr": "^2.2.2"
