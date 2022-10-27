@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lib": "tsc && vite build --mode lib",
     "preview": "vite preview",
     "publish:npm": "yarn publish npmpackage --registry https://registry.npmjs.org",
+    "lib": "tsc && vite build --mode lib",
     "pub": "node ./scripts/publish.js"
   },
   "dependencies": {
