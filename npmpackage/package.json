@@ -1,17 +1,17 @@
 {
   "name": "datasetviewer",
   "private": false,
-  "version": "0.0.9",
+  "version": "0.1.1",
   "files": [
-    "./lib"
+    "./"
   ],
-  "main": "./lib/umd/index.umd.js",
-  "module": "./lib/es/index.es.js",
-  "types": "./lib/src/components/DatasetViewer/dataset-viewer.d.ts",
+  "main": "./umd/index.umd.js",
+  "module": "./es/index.es.js",
+  "types": "./src/components/DatasetViewer/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/es/index.es.js",
-      "require": "./lib/umd/index.umd.js"
+      "import": "./es/index.es.js",
+      "require": "./umd/index.umd.js"
     }
   },
   "dependencies": {

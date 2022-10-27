@@ -7,22 +7,11 @@
     "build": "tsc && vite build",
     "lib": "tsc && vite build --mode lib",
     "preview": "vite preview",
-    "publish:npm": "yarn publish npmpackage --registry https://registry.npmjs.org"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "./lib/umd/index.umd.js",
-  "module": "./lib/es/index.es.js",
-  "types": "./lib/src/components/DatasetViewer/dataset-viewer.d.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/es/index.es.js",
-      "require": "./lib/umd/index.umd.js"
-    }
+    "publish:npm": "yarn publish npmpackage --registry https://registry.npmjs.org",
+    "pub": "node ./scripts/publish.js"
   },
   "dependencies": {
-    "datasetviewer": "^0.0.8",
+    "datasetviewer": "^0.1.1",
     "fabric": "^5.2.4",
     "lodash": "^4.17.21",
     "randomcolor": "^0.6.2"
@@ -62,6 +51,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.55.0",
+    "shelljs": "^0.8.5",
     "tailwindcss": "^3.2.1",
     "terser": "^5.15.1",
     "vite": "^3.1.0",
