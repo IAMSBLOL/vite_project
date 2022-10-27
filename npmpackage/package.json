@@ -1,9 +1,9 @@
 {
   "name": "datasetviewer",
   "private": false,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "files": [
-    "../lib"
+    "./lib"
   ],
   "main": "./lib/umd/index.umd.js",
   "module": "./lib/es/index.es.js",
