@@ -52,6 +52,10 @@ export const drawData = (ctx, data) => {
   // fillColorList.push('0.2)')
   // const fillColor = fillColorList.join()
 
+  if (type === undefined) {
+    console.error('data.type 不存在')
+  }
+
   if (type === 'CustomRect') {
     const [
       left,
