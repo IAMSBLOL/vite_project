@@ -1,13 +1,13 @@
 {
   "name": "datasetviewer",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.6",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lib": "tsc && vite build --mode lib",
     "preview": "vite preview",
-    "publish:npm": "yarn publish --registry https://registry.npmjs.org"
+    "publish:npm": "yarn publish npmpackage --registry https://registry.npmjs.org"
   },
   "files": [
     "lib"
@@ -17,11 +17,12 @@
   "types": "./lib/src/components/DatasetViewer/dataset-viewer.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/index.es.js",
-      "require": "./lib/index.umd.js"
+      "import": "./lib/es/index.es.js",
+      "require": "./lib/umd/index.umd.js"
     }
   },
   "dependencies": {
+    "datasetviewer": "^0.0.8",
     "fabric": "^5.2.4",
     "lodash": "^4.17.21",
     "randomcolor": "^0.6.2"
