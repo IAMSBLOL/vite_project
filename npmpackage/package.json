@@ -1,0 +1,22 @@
+{
+  "name": "datasetviewer",
+  "private": false,
+  "version": "0.0.4",
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/umd/index.umd.js",
+  "module": "./lib/es/index.es.js",
+  "types": "./lib/src/components/DatasetViewer/dataset-viewer.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/es/index.es.js",
+      "require": "./lib/umd/index.umd.js"
+    }
+  },
+  "dependencies": {
+    "fabric": "^5.2.4",
+    "lodash": "^4.17.21",
+    "randomcolor": "^0.6.2"
+  }
+}
