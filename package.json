@@ -1,7 +1,7 @@
 {
   "name": "datasetviewer",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +10,7 @@
     "publish:npm": "yarn publish --registry https://registry.npmjs.org"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "main": "./lib/umd/index.umd.js",
   "module": "./lib/es/index.es.js",
