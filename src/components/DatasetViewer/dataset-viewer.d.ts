@@ -8,10 +8,12 @@ declare namespace DatasetViewer_V1 {
 
     type DataItem = {
         type: string,
+        label?: string,
         points?: Array<any>,
         color?: string,
         fill?: string,
         rectData?: Array<any>,
+        drawPoint?:boolean
     }
 
     interface DatasetViewerConfig {

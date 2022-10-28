@@ -38,19 +38,33 @@ export const drawData = (ctx, data) => {
     points,
     rectData,
     stroke,
-    fill
+    fill,
 
   } = data;
-  // const color = randomColor({
-  //   seed: label,
-  //   format: 'rgba',
-  //   luminosity: 'bright',
-  //   alpha: 1
-  // })
-  // const fillColorList = color.split(',')
-  // fillColorList.pop();
-  // fillColorList.push('0.2)')
-  // const fillColor = fillColorList.join()
+
+  let [_stroke, _fill] = [null, null]
+
+  if (!stroke) {
+    // label不一定存在
+    console.log(label)
+    const defualt_stroke = randomColor({
+      seed: label || type,
+      format: 'rgba',
+      luminosity: 'bright',
+      alpha: 1
+    })
+
+    const fillColorList = defualt_stroke.split(',')
+    fillColorList.pop();
+    fillColorList.push('0.2)')
+    const default_fill = fillColorList.join();
+
+    _stroke = defualt_stroke
+    _fill = default_fill
+  } else {
+    _stroke = stroke
+    _fill = fill
+  }
 
   if (type === undefined) {
     console.error('data.type 不存在')
@@ -68,9 +82,8 @@ export const drawData = (ctx, data) => {
       top,
       width,
       height,
-
-      fill,
-      stroke,
+      fill: _fill,
+      stroke: _stroke,
       label,
       ...defaultRect,
 
@@ -95,34 +108,27 @@ export const drawData = (ctx, data) => {
   // 目前多边形和这折线还没有用的上，搞不好以后也用不上
   if (type === 'polyline') {
     const line = new fabric.Polyline(points, {
-      stroke: randomColor({
-        seed: label,
-        format: 'rgba',
-        luminosity: 'bright',
-        alpha: 1
-      }),
+      stroke: _stroke,
       strokeWidth: 1,
       // perPixelTargetFind: true,
       // transparentCorners: true,
       opacity: 1,
       // hasBorders: false,
-      hasControls: true,
-      hasBorders: true,
+      hasControls: false,
+      hasBorders: false,
       // fill: 'transparent',
       selectable: false,
 
       objectCaching: false,
       transparentCorners: false,
-      fill: 'transparent',
 
-      label
     })
-    ctx.add(line)
+    ctx.add(line);
   }
 
   if (type === 'CustomPolygon') {
     const polylgon = new CustomPolygon(points, {
-      stroke,
+      stroke: _stroke,
       strokeWidth: 1,
       // perPixelTargetFind: true,
       // transparentCorners: true,
@@ -132,7 +138,7 @@ export const drawData = (ctx, data) => {
       hasBorders: false,
       // fill: 'transparent',
       selectable: false,
-      fill,
+      fill: _fill,
       objectCaching: false,
       transparentCorners: false,
       // padding: 25,
