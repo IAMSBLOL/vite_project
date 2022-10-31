@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "publish:npm": "yarn publish npmpackage --registry https://registry.npmjs.org",
     "lib": "tsc && vite build --mode lib",
-    "pub": "node ./scripts/publish.js"
+    "pub": "node ./scripts/publish.js",
+    "image": "node ./scripts/pushImage.js"
   },
   "dependencies": {
     "datasetviewer": "^0.1.1",

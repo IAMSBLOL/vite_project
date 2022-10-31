@@ -29,18 +29,18 @@ const tag = _tag || gitCommitVersion
 
 const build = shell.exec(`docker build -t resume:${tag} -f ./docker/Dockerfile .`)
 if (build.code) {
-  chalk.error('npm run build failed……\n意外总比惊喜来得快~这就是生活吧\n我猜是你的小鲸鱼跪了')
+  console.log(chalk.red('npm run build failed……\n意外总比惊喜来得快~这就是生活吧\n我猜是你的小鲸鱼跪了'))
 } else {
   shell.exec(`docker tag resume:${tag} iamsblol/images_of_sb_datasetviewer:${tag}`)
   const rst = shell.exec(`docker push iamsblol/images_of_sb_datasetviewer:${tag}`)
 
   if (rst.code) {
-    chalk.error('镜像推送失败……')
+    console.log(chalk.redBright('镜像推送失败……'))
   } else {
-    chalk.success(`
+    console.log(chalk.green(`
     -----------------------------------------------------------------------------------------------------------
     |    恭喜您推送镜像成功，具体地址请查看，https://hub.docker.com/repository/docker/iamsblol/images_of_sb      |
     -----------------------------------------------------------------------------------------------------------
-    `);
+    `));
   }
 }

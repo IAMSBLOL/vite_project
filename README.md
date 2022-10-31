@@ -4,16 +4,18 @@
 基本涵盖常见算法输出的数据。
 文档未完善，[在线推理相关业务的朋友可以先看这里](https://github.com/IAMSBLOL/dataset-viewer/tree/master/src/view/DatasetViewerExample/transfromUtils)
 
+[在线demo](http://119.91.150.219:8080/)
+
 ## Installation
 
-`yarn add dataset-viewer`
+`yarn add datasetviewer`
 
 ## Documentation
 
 ### Usage
 
 ```
-  import DatasetViewer from 'dataset-viewer'
+  import DatasetViewer from 'datasetviewer'
 
   const config:DatasetViewerConfig = {...}
 

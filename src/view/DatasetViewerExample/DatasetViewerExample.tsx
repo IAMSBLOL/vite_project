@@ -1,5 +1,5 @@
 import DatasetViewer from '@src/components/DatasetViewer'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { pose_detection, detection, car_pose_detection, segment } from './transfromUtils'
 import './DatasetViewerExample.less'
 
