@@ -8,8 +8,6 @@ const DatasetViewerExample = () => {
 
   const viewer = useRef<DatasetViewer|null>(null)
 
-  const [src, setSRc] = useState('')
-
   useEffect(() => {
     if (canvas.current) {
       // 需要拿到父容器信息，因为待会需要设置矩阵来自适应图片大小
@@ -32,7 +30,7 @@ const DatasetViewerExample = () => {
     })
   }, [])
 
-  const handleTest = () => {
+  const handleTestDetection = () => {
     const { url, data }: any = detection()
     viewer.current?.resetConfig({
       url,
@@ -80,20 +78,34 @@ const DatasetViewerExample = () => {
       }
     })
     viewer.current?.init()
-    setSRc(url)
+  }
+
+  const handleTestClassify = () => {
+    const { url }: any = detection()
+    viewer.current?.resetConfig({
+      url,
+      data: [],
+      opreationsConfig: {
+        zoom: true
+      }
+    })
+    viewer.current?.init()
   }
 
   return (
     <div className='shadow-lg m-2 DatasetViewerExample'>
+      <div className='w-200 flex justify-center items-center flex-col'>
+        <div className='btn_item mb-10 p-5' onClick={handleTestDetection}>目标检测</div>
+        <div className='btn_item mb-10 p-5' onClick={handleTestClassify}>分类</div>
+        <div className='btn_item mb-10 p-5' onClick={handleTest_car_pose_detection}>car_pose_detection</div>
+        <div className='btn_item mb-10 p-5' onClick={handleTestSegment}>通用分割</div>
+        <div className='btn_item mb-10 p-5' onClick={handleTestPose}>姿态检测</div>
+      </div>
+
       <div className='canvas_wrap'>
         <canvas ref={canvas} className='canvas' />
       </div>
-      <div onClick={handleTest}>目标检测</div>
-      <div onClick={handleTest}>分类</div>
-      <div onClick={handleTest_car_pose_detection}>car_pose_detection</div>
-      <div onClick={handleTestSegment}>通用分割</div>
-      <div onClick={handleTestPose}>姿态检测</div>
-      <img src={src}/>
+
     </div>
   )
 }

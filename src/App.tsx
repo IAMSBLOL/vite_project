@@ -1,25 +1,22 @@
 
-import { ReactComponent as ReactLogo } from '@assets/react.svg'
+import { ReactComponent as GithubLogo } from '@assets/github.svg'
 import DatasetViewerExample from '@view/DatasetViewerExample'
 import './App.css'
 
 function App () {
   return (
-    <div className="App container mx-auto">
+    <div className="App">
 
-      <div className='title_wrap'>
-        <h1>Example</h1>
-        <div className='logo_wrap'>
-          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-            <img src="/vite.svg" className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-            <ReactLogo className="logo react" />
-          </a>
-        </div>
+      <div className='flex justify-between items-center pl-10 pr-10 h-10 bg-yellow-200'>
+        <h1 className='font-sans text-lg'>Dataset-Viewer-Example</h1>
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+          <GithubLogo />
+        </a>
+      </div>
+      <div className='container mx-auto'>
+        <DatasetViewerExample />
       </div>
 
-      <DatasetViewerExample />
     </div>
   )
 }
