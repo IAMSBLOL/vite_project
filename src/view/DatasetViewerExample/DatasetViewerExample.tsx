@@ -1,6 +1,6 @@
 import DatasetViewer from '@src/components/DatasetViewer'
-import { useEffect, useRef } from 'react'
-import { pose_detection, detection } from './transfromUtils'
+import { useEffect, useRef, useState } from 'react'
+import { pose_detection, detection, car_pose_detection, segment } from './transfromUtils'
 import './DatasetViewerExample.less'
 
 const DatasetViewerExample = () => {
@@ -8,21 +8,16 @@ const DatasetViewerExample = () => {
 
   const viewer = useRef<DatasetViewer|null>(null)
 
+  const [src, setSRc] = useState('')
+
   useEffect(() => {
     if (canvas.current) {
       // 需要拿到父容器信息，因为待会需要设置矩阵来自适应图片大小
-
+      const { url, data }: any = detection()
       viewer.current = new DatasetViewer({
         canvasInstance: canvas.current,
-        url: 'http://s3.ceph.k8s.gddi.com/storage-ic5rlt/2021/09/07/309b3801c353c115f2aaa0ef14650770013bcb50.jpg',
-        data: [
-          {
-            label: 'banana',
-            rectData: [24.145, 92.157, 285.789, 283.977],
-            type:
-              'CustomRect'
-          }
-        ],
+        url,
+        data,
         opreationsConfig: {
           zoom: false
         }
@@ -61,6 +56,33 @@ const DatasetViewerExample = () => {
     viewer.current?.init()
   }
 
+  const handleTest_car_pose_detection = () => {
+    const { url, data }: any = car_pose_detection()
+    console.log(data)
+    viewer.current?.resetConfig({
+      url,
+      data: data || [],
+      opreationsConfig: {
+        zoom: true
+      }
+    })
+    viewer.current?.init()
+  }
+
+  const handleTestSegment = async () => {
+    const { url, data }: any = await segment()
+
+    viewer.current?.resetConfig({
+      url,
+      data: data || [],
+      opreationsConfig: {
+        zoom: true
+      }
+    })
+    viewer.current?.init()
+    setSRc(url)
+  }
+
   return (
     <div className='shadow-lg m-2 DatasetViewerExample'>
       <div className='canvas_wrap'>
@@ -68,10 +90,10 @@ const DatasetViewerExample = () => {
       </div>
       <div onClick={handleTest}>目标检测</div>
       <div onClick={handleTest}>分类</div>
-      <div onClick={handleTest}>单目3D</div>
-      <div onClick={handleTest}>通用分割</div>
+      <div onClick={handleTest_car_pose_detection}>car_pose_detection</div>
+      <div onClick={handleTestSegment}>通用分割</div>
       <div onClick={handleTestPose}>姿态检测</div>
-
+      <img src={src}/>
     </div>
   )
 }

@@ -5,7 +5,7 @@ export const CustomPolygon = fabric.util.createClass(fabric.Polygon, {
 
   type: 'CustomPolygon',
 
-  initialize: function (element:any, options:any) {
+  initialize: function (element: any, options: any) {
     this.callSuper('initialize', element, options);
     options && this.set('label', options.label || '');
   },
@@ -22,7 +22,7 @@ export const CustomPolygon = fabric.util.createClass(fabric.Polygon, {
     });
   },
 
-  _render: function (ctx:any) {
+  _render: function (ctx: any) {
     if (isEmpty(this.label)) {
       this.callSuper('_render', ctx);
       return

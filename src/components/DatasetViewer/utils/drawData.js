@@ -146,8 +146,6 @@ export const drawData = (ctx, data) => {
       label
     });
 
-    // 初始化rect
-
     ctx.add(polylgon);
   }
 }

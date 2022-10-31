@@ -33,7 +33,7 @@ export const CustomRect = fabric.util.createClass(fabric.Rect, {
 
   type: 'CustomRect',
 
-  initialize: function (element:any, options:any) {
+  initialize: function (element: any, options: any) {
     this.callSuper('initialize', element, options);
     options && this.set('label', options.label || '');
   },
@@ -49,7 +49,7 @@ export const CustomRect = fabric.util.createClass(fabric.Rect, {
     });
   },
 
-  _render: function (ctx:any) {
+  _render: function (ctx: any) {
     this.callSuper('_render', ctx);
 
     const w = -this.width / 2;

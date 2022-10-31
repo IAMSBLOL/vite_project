@@ -46,7 +46,9 @@ export const detection = () => {
 
     const data:any[] = []
     for (const o of result) {
-      const [label, x, y, w, h] = o
+      const [label, x, y, x1, y1] = o
+      const w = (x1 as number) - (x as number)
+      const h = (y1 as number) - (y as number)
       data.push({
         label,
         rectData: [x, y, w, h],

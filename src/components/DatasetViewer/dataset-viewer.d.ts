@@ -9,10 +9,10 @@ declare namespace DatasetViewer_V1 {
     type DataItem = {
         type: string,
         label?: string,
-        points?: Array<any>,
-        color?: string,
+        points?: Array<{x:number, y:number}>,
+        stroke?: string,
         fill?: string,
-        rectData?: Array<any>,
+        rectData?: Array<number>,
         drawPoint?:boolean
     }
 

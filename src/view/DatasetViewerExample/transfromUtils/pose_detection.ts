@@ -310,7 +310,7 @@ export const pose_detection = () => {
     for (const o of result) {
       let formatData: any[] = []
       // 算法大佬说只需要17个点~
-      const points_coordinate = o.slice(0, 34)
+      const points_coordinate = o.slice(6, 40)
       console.log(points_coordinate)
       const [
         nose_x,

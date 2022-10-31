@@ -143,7 +143,7 @@ class DatasetViewer {
       }
       const image = new Image()
       // image.setAttribute('crossOrigin', 'anonymous');
-      console.log(this.config.url)
+
       image.src = this.config.url;
 
       // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -160,6 +160,7 @@ class DatasetViewer {
       }
       image.onload = function () {
         const imgIns: HTMLImageElement = (this as any);
+        console.log(imgIns, 163)
         _this.imgIns = imgIns;
 
         _this.setMatrix()
