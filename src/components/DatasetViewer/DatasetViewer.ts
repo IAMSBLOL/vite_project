@@ -154,7 +154,11 @@ class DatasetViewer {
         this.fbIns = null
       }
       if (this.config.opreationsConfig?.zoom && this.fbIns === null) {
-        this.fbIns = new fabric.Canvas(this.canvasInstance)
+        this.fbIns = new fabric.Canvas(this.canvasInstance, {
+          preserveObjectStacking: true,
+          controlsAboveOverlay: true,
+          allowTouchScrolling: true
+        })
       } else {
         this.fbIns = new fabric.StaticCanvas(this.canvasInstance)
       }

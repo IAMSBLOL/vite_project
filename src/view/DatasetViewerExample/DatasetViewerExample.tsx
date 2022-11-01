@@ -1,6 +1,7 @@
 import DatasetViewer from '@src/components/DatasetViewer'
 import { useEffect, useRef } from 'react'
 import { pose_detection, detection, car_pose_detection, segment } from './transfromUtils'
+
 import './DatasetViewerExample.less'
 
 const DatasetViewerExample = () => {
@@ -17,7 +18,7 @@ const DatasetViewerExample = () => {
         url,
         data,
         opreationsConfig: {
-          zoom: false
+          zoom: true
         }
       })
 
@@ -96,7 +97,7 @@ const DatasetViewerExample = () => {
     <div className='shadow-lg m-2 DatasetViewerExample'>
       <div className='w-200 flex justify-center items-center flex-col'>
         <div className='btn_item mb-10 p-5' onClick={handleTestDetection}>目标检测</div>
-        <div className='btn_item mb-10 p-5' onClick={handleTestClassify}>分类</div>
+        <div className='btn_item mb-10 p-5' onClick={handleTestClassify}>分类（这个绝对定位个标签就行了，没必要画）</div>
         <div className='btn_item mb-10 p-5' onClick={handleTest_car_pose_detection}>car_pose_detection</div>
         <div className='btn_item mb-10 p-5' onClick={handleTestSegment}>通用分割</div>
         <div className='btn_item mb-10 p-5' onClick={handleTestPose}>姿态检测</div>

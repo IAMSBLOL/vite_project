@@ -69,6 +69,9 @@ export default defineConfig((configEnv) => {
   }
 
   return {
+    server:{
+      host:"0.0.0.0"
+    },
 
     plugins: [
 

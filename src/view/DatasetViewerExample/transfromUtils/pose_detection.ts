@@ -1,6 +1,6 @@
 const example_json = {
   model_type: 'pose_detection',
-  url: 'http://s3.ceph.k8s.gddi.com/temp/inference/images/609dd9b7-8d37-4897-b982-3b42969c1f6f.jpg',
+  url: 'https://s3.local.cdn.desauto.net/temp/inference/images/609dd9b7-8d37-4897-b982-3b42969c1f6f.jpg',
   result: [
     [
       69.43899550360122,

@@ -1,7 +1,7 @@
 import randomcolor from 'randomcolor'
 
 const example_json = {
-  url: 'http://s3.ceph.k8s.gddi.com/storage-ic5rlt/2022/08/12/0b02942268a110d26342047c9b8a6b70260c2411.png',
+  url: 'https://s3.local.cdn.desauto.net/storage-ic5rlt/2022/08/12/0b02942268a110d26342047c9b8a6b70260c2411.png',
   model_type: 'car_pose_detection',
   result: [
     [

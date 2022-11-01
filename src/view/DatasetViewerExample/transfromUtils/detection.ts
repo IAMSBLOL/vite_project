@@ -1,5 +1,5 @@
 const example_json = {
-  url: 'http://s3.ceph.k8s.gddi.com/temp/inference/images/c2113c66-2589-4813-b868-c1c24bfb359e.jpg',
+  url: 'https://s3.local.cdn.desauto.net/temp/inference/images/c2113c66-2589-4813-b868-c1c24bfb359e.jpg',
   model_type: 'detection',
   result: [
     [
