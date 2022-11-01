@@ -1,8 +1,7 @@
 # dataset-viewer
 
-项目只提供画线条、多边形、像素混合功能（待开发）。
+组件提供画线条、多边形、像素混合功能和例子。
 基本涵盖常见算法输出的数据。
-文档未完善，[在线推理相关业务的朋友可以先看这里](https://github.com/IAMSBLOL/dataset-viewer/tree/master/src/view/DatasetViewerExample/transfromUtils)
 
 [在线demo](http://119.91.150.219:8080/)
 
@@ -23,6 +22,7 @@
 
   viewer.init()
 ```
+[调用例子代码调用例子代码调用例子代码调用例子代码调用例子代码调用例子代码](https://github.com/IAMSBLOL/dataset-viewer/blob/master/src/view/DatasetViewerExample/DatasetViewerExample.tsx)
 ### DatasetViewerConfig
 
 
@@ -31,7 +31,7 @@
 | canvasInstance | HTMLCanvasElement | canvas标签，ref |
 | url | string | 展示图片地址 |
 | data | Array<DataItem> | canvas绘画的每一项数据 |
-| opreationsConfig | DatasetViewerConfig | 能否缩放拖动的控制 |
+| opreationsConfig | OpreationsConfig | 能否缩放拖动的控制 |
 | isDraw | boolean | 控制是否绘画数据 |
 
 #### DataItem
@@ -46,5 +46,31 @@
 | rectData | [x,y,w,h] | 起点坐标，宽高 |
 | drawPoint | boolean | 是否需要画点 |
 
+#### OpreationsConfig
+
+| name | type | descriptions |
+| --- | --- | --- |
+| zoom | boolean | 是否缩放 |
 
 
+---
+
+### 数据转换例子
+
+**注意：如果项目比较注重性能，请注意源数据的精度，最好把浮点数去掉**
+
+简单来说，检测就是画框。单目3D也是画框，不过是多个不规则多边形的组合。
+姿态检测类型的就是线段、或者折线的绘画。
+
+分割比较特殊，需要看算法怎么输出mask数据类型。一般是用像素存储数据,看你们怎么规定约束条件。用canvas像素diff数据，混合就行。（最简单的混合就是srgb+颜色/2完事）。这一块和这个绘图组件无关，更多的是**canvas操作数据问题**。
+
+分类可以忽略，直接绝对定位一个标签就行。
+
+
+[car_pose_detection (单目3d同理)](https://github.com/IAMSBLOL/dataset-viewer/blob/master/src/view/DatasetViewerExample/transfromUtils/car_pose_detection.ts)
+
+[detection （简单的画框）](https://github.com/IAMSBLOL/dataset-viewer/blob/master/src/view/DatasetViewerExample/transfromUtils/detection.ts)
+
+[pose_detection](https://github.com/IAMSBLOL/dataset-viewer/blob/master/src/view/DatasetViewerExample/transfromUtils/pose_detection.ts)
+
+[通用分割](https://github.com/IAMSBLOL/dataset-viewer/blob/master/src/view/DatasetViewerExample/transfromUtils/segment.ts)

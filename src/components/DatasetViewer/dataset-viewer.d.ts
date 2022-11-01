@@ -16,6 +16,10 @@ declare namespace DatasetViewer_V1 {
         drawPoint?:boolean
     }
 
+    type OpreationsConfig = {
+        zoom: boolean
+    }
+
     interface DatasetViewerConfig {
 
         canvasInstance: HTMLCanvasElement;
@@ -23,9 +27,7 @@ declare namespace DatasetViewer_V1 {
 
         data: Array<DataItem>,
         isDraw?: boolean;
-        opreationsConfig?: {
-            zoom: boolean
-        },
+        opreationsConfig?: OpreationsConfig,
         // parrentNode: HTMLElement | null;
     }
 
