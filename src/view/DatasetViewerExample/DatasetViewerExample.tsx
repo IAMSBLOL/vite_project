@@ -94,7 +94,7 @@ const DatasetViewerExample = () => {
   }
 
   return (
-    <div className='shadow-lg m-2 DatasetViewerExample'>
+    <div className='shadow-lg DatasetViewerExample'>
       <div className='w-200 flex justify-center items-center flex-col'>
         <div className='btn_item mb-10 p-5' onClick={handleTestDetection}>目标检测</div>
         <div className='btn_item mb-10 p-5' onClick={handleTestClassify}>分类（这个绝对定位个标签就行了，没必要画）</div>
