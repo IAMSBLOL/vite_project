@@ -1,1 +1,4 @@
-export const homePage = 'homepage'
+
+export * from './notAuthPath'
+
+export * from './anthPath'

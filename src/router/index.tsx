@@ -1,11 +1,9 @@
 import {
   createBrowserRouter
 } from 'react-router-dom'
-import { homePageRoute } from '@router/subRouters'
+import { ALL_ROUTES } from '@router/subRouters'
 
-const router = createBrowserRouter([
-  homePageRoute
-]);
+const router = createBrowserRouter(ALL_ROUTES);
 
 export default router
 

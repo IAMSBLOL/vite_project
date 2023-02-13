@@ -20,6 +20,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@view/*": ["src/view/*"],
+      "@commonUI/*": ["src/view/commonUI/*"],
       "@assets/*": ["src/assets/*"],
       "@router/*": ["src/router/*"],
       "@router": ["src/router"],

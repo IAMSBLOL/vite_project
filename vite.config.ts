@@ -124,6 +124,8 @@ export default defineConfig((configEnv) => {
         '@assets': resolve(projectRootDir, 'src/assets'),
         '@view': resolve(projectRootDir, 'src/view'),
         '@router': resolve(projectRootDir, 'src/router'),
+        '@commonUI': resolve(projectRootDir, 'src/view/commonUI'),
+        '@api': resolve(projectRootDir, 'src/net'),
       }
     }
   }

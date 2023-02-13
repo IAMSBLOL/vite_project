@@ -1,9 +1,15 @@
+import Header from '@commonUI/Header'
+import CarouselContent from './CarouselContent'
+import NewsList from './NewsList'
 import './HomePage.less'
 
 const HomePage = () => {
   return (
     <div className='HomePage'>
-      123
+      <Header />
+      <CarouselContent />
+
+      <NewsList />
     </div>
   )
 }
