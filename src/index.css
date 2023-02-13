@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+
+
+html,body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #171717;
+  height: unset !important;
+  /* background-color: #171717; */
 }
 
 p {
