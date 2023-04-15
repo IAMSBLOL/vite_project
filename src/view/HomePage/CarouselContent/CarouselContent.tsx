@@ -1,17 +1,17 @@
 import { Carousel } from 'antd';
-import { useEffect, useState } from 'react';
-import api from '@api'
+// import { useEffect, useState } from 'react';
+// import api from '@api'
 import './CarouselContent.less'
 
 const CarouselContent = () => {
-  const [dataList, setDataList] = useState<any[]>([])
-  useEffect(() => {
-    const fetchList = async () => {
-      const res = await api.get('https://r.inews.qq.com/web_feed/getPCList')
-      console.log(res)
-    }
-    fetchList()
-  }, [])
+  // const [dataList, setDataList] = useState<any[]>([])
+  // useEffect(() => {
+  //   const fetchList = async () => {
+  //     const res = await api.get('https://r.inews.qq.com/web_feed/getPCList')
+  //     console.log(res)
+  //   }
+  //   fetchList()
+  // }, [])
   return (
     <div className='CarouselContent max-w-xl rounded-lg shadow-2xl mt-5'>
       <Carousel className='carousel w-full' autoplay>

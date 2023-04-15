@@ -3,7 +3,7 @@ import { defineConfig, splitVendorChunkPlugin, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import legacy from '@vitejs/plugin-legacy'
-
+import basicSsl from '@vitejs/plugin-basic-ssl'
 import dts from 'vite-plugin-dts'
 // import typescript from 'rollup-plugin-typescript2'
 
@@ -70,7 +70,7 @@ export default defineConfig((configEnv) => {
 
   return {
     server:{
-      host:"0.0.0.0"
+      host:"0.0.0.0",
     },
 
     plugins: [
@@ -101,7 +101,8 @@ export default defineConfig((configEnv) => {
       //   /* your options */
 
       // }),
-      splitVendorChunkPlugin()
+      splitVendorChunkPlugin(),
+      basicSsl()
     ].filter(Boolean),
 
 

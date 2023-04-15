@@ -2,11 +2,37 @@ import Header from '@commonUI/Header'
 import Footer from '@commonUI/Footer'
 import CarouselContent from './CarouselContent'
 import NewsList from './NewsList'
+import AudioConcatenator from './audio/audio'
 import './HomePage.less'
 
+import { useEffect, useRef } from 'react'
+
 const HomePage = () => {
+  const handle = useRef(new AudioConcatenator({
+    wait: 5000
+  }))
+
+  useEffect(() => {
+    handle.current.loadResources([
+      '/haha.mp3',
+      '/test.mp3',
+      '/noproblem.mp3'
+    ]);
+
+    setTimeout(() => {
+      window.clearInterval(handle.current.timer)
+      handle.current.loadResources([
+        '/haha.mp3',
+        '/test.mp3',
+
+      ]);
+    }, 10000)
+  }, [])
+
   return (
     <div className='HomePage'>
+
+      {/* <audio autoPlay src={url}></audio> */}
       <Header />
       <div className="hero bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
