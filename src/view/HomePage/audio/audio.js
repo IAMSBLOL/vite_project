@@ -2,8 +2,8 @@
 import { isEmpty } from 'lodash'
 import WavEncoder from './utils'
 export default class AudioConcatenator {
-  constructor (props) {
-    this.config = props
+  constructor () {
+    // this.config = props
     const AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
     this.context = new AudioContext();
     this.destination = this.context.destination;
@@ -13,7 +13,8 @@ export default class AudioConcatenator {
     this.source = null
     this.timer = undefined
     this.buffers = [];
-    this.output = null
+    this.output = null;
+    this.timeOffet = 0
   }
 
   frameYieldMs = 5
@@ -68,6 +69,9 @@ export default class AudioConcatenator {
   }
 
   loadResources (urls, cb) {
+    if (isEmpty(urls)) {
+      throw new Error('no audio resource urls')
+    }
     this.urls = urls
     this.cb = cb
     this.init()
@@ -76,11 +80,7 @@ export default class AudioConcatenator {
   }
 
   async transformOutput () {
-    console.log(64)
     const urls = this.urls
-    if (isEmpty(urls)) {
-      throw new Error('no audio resource urls')
-    }
 
     for (let i = 0; i < urls.length; i++) {
       const url = urls[i]
@@ -96,6 +96,8 @@ export default class AudioConcatenator {
       }
       offset += buffer.length;
     }
+
+    this.timeOffet = this.output.duration * 1000
   }
 
   autoPlayOrReturnUrl () {
@@ -104,20 +106,25 @@ export default class AudioConcatenator {
       const url = window.URL.createObjectURL(blob);
       this?.cb(url)
     } else {
-      window.navigator.mediaDevices.getUserMedia({
-        audio: true
-      }).then(mediaStream => {
-        this.context.resume()
-        this.play()
-      }).catch(err => {
-        console.error(err);
-      });
+      // window.navigator.mediaDevices.getUserMedia({
+      //   audio: true
+      // }).then(mediaStream => {
+      //   this.context.resume()
+      // }).catch(err => {
+      //   console.error(err);
+      // });
+      window.document.body.addEventListener('click', this.resume, { once: true })
+      this.play()
     }
+  }
+
+  resume = () => {
+    this.context.resume()
   }
 
   play () {
     if (this.isReady) {
-      const cb = async () => {
+      const cb = () => {
         try {
           this.source = this.context.createBufferSource();
           this.source.buffer = this.output;
@@ -127,7 +134,22 @@ export default class AudioConcatenator {
 
         }
       }
-      this.timer = setInterval(cb, this.config.wait + this.output.duration * 1000)
+      cb()
+      // this.timer = setInterval(cb, this.config.wait + this.output.duration * 1000)
     }
+  }
+
+  destory () {
+    window.document.body.removeEventListener('click', this.resume);
+    // this.config = null
+    this.context = null;
+    this.destination = null;
+    this.startTime = null
+    this.channel = null
+    this.source = null
+    this.timer = undefined
+    this.buffers = [];
+    this.output = null;
+    this.timeOffet = null
   }
 }

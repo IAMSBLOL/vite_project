@@ -8,9 +8,7 @@ import './HomePage.less'
 import { useEffect, useRef } from 'react'
 
 const HomePage = () => {
-  const handle = useRef(new AudioConcatenator({
-    wait: 5000
-  }))
+  const handle = useRef(new AudioConcatenator())
 
   useEffect(() => {
     handle.current.loadResources([
@@ -20,11 +18,9 @@ const HomePage = () => {
     ]);
 
     setTimeout(() => {
-      window.clearInterval(handle.current.timer)
       handle.current.loadResources([
         '/haha.mp3',
         '/test.mp3',
-
       ]);
     }, 10000)
   }, [])
